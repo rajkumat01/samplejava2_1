@@ -14,7 +14,7 @@
     def exporterName ='returnAllData' 
 
     // def namePath ="E2E/pipelineUpload/${currentBuild.number}"
-   def namePath ='Comp_2'
+   def namePath ="Comp_2"
   // def namePath ="Comp_1/${JOB_NAME}/${currentBuild.number}"
 //def namePath ="App_2/components/Comp_1${JOB_NAME}/"
 pipeline {
@@ -23,7 +23,7 @@ pipeline {
         stage('Clone repository') {               
            steps{
                 // checkout scm
-                git branch: 'master', url: 'https://github.com/rajkumat01/samplejava2_1'
+                git branch: 'main', url: 'https://github.com/rajkumat01/samplejava2_1'
            }
         }     
         stage('Validate Configurtion file'){
