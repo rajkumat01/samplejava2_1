@@ -34,7 +34,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/rajkumat01/samplejava2_1'
            }
         }     
-        stage('Validate Configurtion file'){
+        stage('Upload JSON'){
             steps{
                 script{
                     sh "echo validating configuration file ${configFilePath}.${exportFormat}"
@@ -45,7 +45,7 @@ pipeline {
                 }
             }
         }
-        stage("register change set to pipeline"){
+        stage("Committing the changeset"){
             steps{
                 script{
                     echo "Change set registration for ${changeSetId}"
@@ -54,7 +54,7 @@ pipeline {
                 }
             }
         }
-         stage("Get snapshots created"){
+         stage("SnapshotValidation and GetSnapshotsCreated"){
             steps{
                 echo "Triggering Get snapshots for applicationName:${appName},deployableName:${deployName},changeSetId:${changeSetId}"
                 script{
@@ -96,7 +96,7 @@ pipeline {
             }
 
         }
-        stage('Download Snapshots from Service Now') {
+        stage('Export Snapshot') {
             steps{
                 script{
                     echo "Exporting for App: ${appName} Deployable; ${deployName} Exporter name ${exporterName} "
